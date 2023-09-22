@@ -1,0 +1,17 @@
+-- Create the Table_Category table
+CREATE TABLE `Table_Category` (
+  `CategoryID` INT AUTO_INCREMENT PRIMARY KEY,
+  `ProductCategory` VARCHAR(255) NOT NULL,
+  INDEX (`ProductCategory`)
+);
+
+-- Create the Table_Products table
+CREATE TABLE `Table_Products` (
+  `ProductID` INT AUTO_INCREMENT PRIMARY KEY,
+  `ProductName` VARCHAR(255) NOT NULL,
+  `ProductDescription` TEXT,
+  `ProductCategory` VARCHAR(255) NOT NULL,
+  `ProductQuantity` INT NOT NULL,
+  `ProductPrice` DECIMAL(10, 2) NOT NULL,
+  CONSTRAINT `fk_category` FOREIGN KEY (`ProductCategory`) REFERENCES `Table_Category` (`ProductCategory`)
+);
